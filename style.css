@@ -1,0 +1,278 @@
+:root{
+    --background: #101114;
+    --primary: #1c1d20;
+    --secondary: #4a4d57;
+    --title: #00ffc4;
+    --text-color: #f9f9f9;
+    --radiuse: 5px
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16pt;
+    color: var(--text-color);
+}
+
+body{
+    min-height: 100vh;
+    padding: 10px;
+    background-color: var(--background);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+h1{
+    margin-top: 100px;
+    margin-bottom: 20px;
+    font-size: 3rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--title);
+}
+.wrapper{
+    width: 700px;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+#input-todo{
+    box-sizing: border-box;
+    padding: 12px 20px;
+    width: 100%;
+    background: none;
+    border: 2px solid var(--secondary);
+    border-radius: 1000px;
+    font: inherit;
+    color: var(--text-color);
+    caret-color: var(--title);
+}
+#input-todo:focus{
+    outline: none;
+}
+form{
+    position: relative;
+}
+#add{
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    background-color: var(--title);
+    height: 100%;
+    padding: 0 30px;
+    border: none;
+    border-radius: 1000px;
+    font: inherit;
+    font-weight: 600;
+    color: var(--background);
+    cursor: pointer;
+}
+.ListOfTodos{
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding: 0 16px;
+    background-color: var(--primary);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+}
+.ListOfTodos .todo-text{
+    padding: 15px;
+    padding-right: 0;
+    flex-grow: 1;
+    user-select: none;
+    transition: 200ms ease;
+}
+.remove-todo{
+    padding: 3px;
+    background: none;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    fill: var(--text-color);
+}
+.remove-todo svg{
+    transition: 200ms ease;
+}
+.remove-todo:hover svg{
+    fill: #ff0033;
+}
+.custumCheckBox{
+    border: 2px solid var(--title);
+    border-radius: 50px;
+    min-height: 20px;
+    min-width: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    transition: 200ms ease;
+    cursor: pointer;
+}
+.custumCheckBox:hover{
+    background-color: #00ffc331;
+}
+.custumCheckBox:hover svg{
+    fill: #f9f9f931;
+}
+input[type="checkbox"]:checked ~ .custumCheckBox{
+    background-color: var(--title);
+}
+input[type="checkbox"]:checked ~ .custumCheckBox svg{
+    fill: var(--primary);
+}
+input[type="checkbox"]:checked ~ .todo-text{
+    text-decoration: line-through;
+    color: var(--secondary);
+}
+input[type="checkbox"]{
+    display: none;
+}
+@media(max-width: 500px){
+    html{
+        font-size: 12px;
+    }
+    #add{
+        position: unset;
+        width: 100%;
+        margin-top: 10px;
+        padding: 15px;
+        height: auto;
+    }
+    h1{
+        margin-top: 50px;
+        font-size: 15vw;
+    }
+}
+
+/* Auth Section */
+.sign-section {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    text-align: right;
+}
+
+.sign-section button {
+    background-color: var(--title);
+    border: none;
+    border-radius: 50px;
+    padding: 5px 10px;
+    margin-left: 10px;
+    font: inherit;
+    font-weight: 600;
+    font-size: medium;
+    color: var(--background);
+    cursor: pointer;
+}
+
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: var(--primary);
+    padding: 20px;
+    border-radius: var(--radiuse);
+    width: 300px;
+    text-align: center;
+    position: relative;
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+.close-modal:hover {
+    color: #ff0033;
+}
+
+#auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#auth-form input {
+    padding: 10px;
+    border: 2px solid var(--secondary);
+    border-radius: var(--radiuse);
+    background: none;
+    color: var(--text-color);
+    font: inherit;
+}
+
+#auth-form button {
+    background-color: var(--title);
+    border: none;
+    border-radius: var(--radiuse);
+    padding: 10px;
+    font: inherit;
+    font-weight: 600;
+    color: var(--background);
+    cursor: pointer;
+}
+
+/* Welcome Section Styles */
+/* Sign Section */
+.sign-section {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    text-align: right;
+    z-index: 1; /* Ensure it stays above other elements */
+}
+
+/* Welcome Section */
+#welcome-section {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: none; /* Hidden by default */
+    align-items: center;
+    gap: 10px;
+    z-index: 2; /* Ensure it appears above the sign section */
+}
+
+#welcome-message {
+    color: var(--text-color);
+}
+
+#logout-button {
+    background-color: var(--title);
+    border: none;
+    border-radius: 50px;
+    padding: 5px 10px;
+    font: inherit;
+    font-weight: 600;
+    color: var(--background);
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}

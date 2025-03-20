@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="back.js" defer></script>
+</head>
+<body>
+
+    <div id="auth-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="modal-title">Sign In</h2>
+            <form id="auth-form">
+                <input type="text" id="username" placeholder="Username" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit" id="auth-submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="welcome-section" class="hidden">
+        <span id="welcome-message"></span>
+        <button id="logout-button">Logout</button>
+    </div>
+
+    <div class="sign-section">
+        <button id="sign-in-button">Sign In</button>
+        <button id="sign-up-button">Sign Up</button>
+    </div>
+
+    <h1>To-Do List</h1>
+    <div class = "wrapper">
+        <form>
+            <input id="input-todo" type="text" placeholder="Enter a new task to Your to do list" autocomplete="off">
+            <button id="add">Add</button>
+        </form>
+        <ul id="todo-list">
+        </ul>
+    </div>
+</body>
+</html>
